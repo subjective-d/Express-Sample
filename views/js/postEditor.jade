@@ -1,0 +1,55 @@
+script.
+  var bodyCk = CKEDITOR.replace("body");
+
+  var appName = "postEditor";
+  var contName = "postCont";
+  var postName = '#{postName}';
+  var editorApp = angular.module(appName,[]);
+  var http;
+  var scope;
+
+  editorApp.controller(contName, function($scope,$http){
+    contSetup($scope,$http);
+  }); 
+
+  function contSetup($scope,$http){
+    setVars($scope, $http);
+    getPost();
+  }
+
+  function setVars($scope, $http){
+    http = $http;
+    scope = $scope;
+    scope.showSave = false;
+  }
+
+  function getPost(){
+    http.get('/rest/post?name=' + postName).then(function(response){
+      scope.title=response.data.post.title;
+      bodyCk.setData(response.data.post.body); 
+      scope.orderNum=response.data.post.orderNumber;
+      scope.error=response.data.post.error;
+    });
+
+  }
+
+  function updatePost(){
+    var putData = {};
+    putData.title = scope.title;
+    putData.body = bodyCk.getData();
+    putData.orderNumber = scope.orderNum;
+    http.put('/rest/post/'+postName,putData).then(function(response){
+      scope.error=response.data.error;
+      if (!scope.error)
+        onSave();
+    });
+  }
+
+  function onSave(){
+    scope.showSave = true; 
+    setTimeout(function (){
+      scope.$apply(function(){
+        scope.showSave = false
+      });
+    }, 1000); 
+  }

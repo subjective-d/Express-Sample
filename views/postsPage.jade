@@ -1,0 +1,25 @@
+extends ./layouts/postsLayout
+block content
+  div(name="posts" ng-app="posts" ng-controller="postsCont")
+    
+    div(name="error" ng-bind="error" ng-model="error")
+    div(class='postListPageDiv')
+      div(class='newPostDiv')
+        h3 New Post
+        textarea(name="newPost" ng-bind="newPost" ng-model="newPost" placeholder="New Name")
+        div(class='newPostButton')
+          div#postButton(class='button' onclick="createPost();") New Post
+
+      div(class='postListDiv')
+        h3 Posts
+        div(class="postLi" ng-repeat="post in postsList")
+          div(class="delPostDiv")
+            div(class='button' ng-click="deletePost(post._id);") Delete
+          div(class='linkPostDiv')
+            div
+              a(href="/posts/edit/{{post.name}}") {{post.name}}
+            div {{post.title}}
+            div(class='orderNumberText') Order Number: 
+              div(class='orderNumberDiv') {{post.orderNumber}} 
+
+  include ./js/posts.jade

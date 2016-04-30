@@ -1,0 +1,198 @@
+a{
+  color: #0084FF;
+} 
+
+h3{ 
+  color: #00CDFF;
+} 
+
+body {
+  font-family: Tahoma,Verdana,Segoe,sans-serif;
+  color: #000000;
+  min-height: 100%;
+  background: white;
+}
+
+.mainMenuBar, .mainMenuUl, .mainMenuLi, .mainMenuA {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  line-height: 1;
+  display: block;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.mainMenuBar:after,.mainMenuUl:after{
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+} 
+
+.mainMenuDiv {
+  width: auto;
+  border-radius: 6px;
+  font-family: 'Source Sans Pro', sans-serif;
+  line-height: 1;
+  background: black;
+}
+
+
+.mainMenuA {
+  padding: 20px 25px 21px 25px;
+  font-size: 15px;
+  text-decoration: none;
+  color: white;
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -ms-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease; 
+}
+
+
+.mainMenuA:hover {
+  color: blue;
+  background: rgba(125, 125, 125, 0.04);
+}
+
+
+.mainMenuLi:after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  right: 0;
+  display: block;
+  height: 40px;
+  width: 2px;
+  opacity: .15;
+  background: rgba(0, 0, 0, 0.7);
+  background: linear-gradient(to top, rgba(1, 1,1, 0.5), #FFFFFF, rgba(1, 1, 1, 0.5));
+  background: -webkit-linear-gradient(top, rgba(1, 1, 1, 0.5), #FFFFFF, rgba(1, 1, 1, 0.5));
+  background: -ms-linear-gradient(top, rgba(1, 0, 1, 0.5), #FFFFFF, rgba(1, 1, 1, 0.5));
+  background: -moz-linear-gradient(top, rgba(1, 0, 1, 0.5), #FFFFFF, rgba(1, 1, 1, 0.5));
+  background: -o-linear-gradient(top, rgba(1, 1, 1, 0.5), #FFFFFF, rgba(1, 1, 1, 0.5));
+}
+
+.postListPageDiv{
+  width: auto;
+  line-height: 1; 
+  margin-top: 10px;
+}
+
+.newPostDiv{
+  float:right;
+  padding: 10px;
+  margin: 5px;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 6px;
+  border: 1px solid;
+}
+
+.newPostButton{
+  clear:both;
+}
+
+.postListDiv{
+  float:left;
+  margin: 5px;
+  width: auto;
+  border-radius: 6px;
+  border: 1px solid;
+  background: rgba(0,0,0,0.5);
+  padding-left: 10px;
+  padding-right: 10px; 
+}
+
+.postLi {
+  border-radius: 6px;
+  border: 1px solid;
+  display: flex;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: black;
+}
+
+.delPostDiv{
+  float:left;
+  margin: 3px;
+  padding: 3px;
+}
+
+.button, .updateButton{
+  display: inline-block;
+  width: auto;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 4px;
+  color: #000000;
+  background: -webkit-linear-gradient(bottom, #747474, #FFFFFF);
+  background: -ms-linear-gradient(bottom, #747474, #FFFFFF);
+  background: -moz-linear-gradient(bottom, #747474, #FFFFFF);
+  background: -o-linear-gradient(bottom, #747474, #FFFFFF);
+  background: linear-gradient(to top, #747474, #FFFFFF); 
+}
+
+.button:active, .updateButton:active{
+  background: -webkit-linear-gradient(bottom, #FFFFFF, #747474);
+  background: -ms-linear-gradient(bottom, #FFFFFF, #747474);
+  background: -moz-linear-gradient(bottom, #FFFFFF, #747474);
+  background: -o-linear-gradient(bottom, #FFFFFF, #747474);
+  background: linear-gradient(to top, #FFFFFF, #747474); 
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.updateButton,.mainMenuLi {
+  float:left;
+}
+
+.editorNameDiv{
+  border-radius: 6px;
+  background: rgba(0,0,0,0.5);
+}
+
+.editorDiv{
+  margin: 10px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid;
+  overflow:auto;
+  background: black;
+}
+
+.orderNumberText,.orderNumberDiv{
+  font-size: 70%;
+}
+
+.orderNumberText{
+  margin-top: 3px;
+  color: white;
+}
+
+.homeTextDiv{
+  border-radius: 8px;
+  margin: 40px;
+  padding: 20px;
+  background: #FAFAFA;
+  box-shadow: 0px 0px 40px 20px rgba(0,0,0,0.5);
+}
+
+.homeTextDiv{
+  color: black;
+}
+
+.saveMessage{
+  color: white;
+}

@@ -1,0 +1,55 @@
+script.
+
+  var appName = "posts";
+  var contName = "postsCont";
+  var editorApp = angular.module(appName,[]);
+  var http;
+  var scope;
+
+  editorApp.controller(contName, function($scope,$http){
+    contSetup($scope,$http);
+  }); 
+
+
+  function contSetup($scope,$http){
+    setVars($scope, $http);
+    bindVars();
+    getPost();
+  }
+
+  function setVars($scope, $http){
+    http = $http;
+    scope = $scope;
+  }
+
+  function bindVars(){
+    scope.newPost = '';
+    scope.deletePost = deletePost;
+  }
+
+  function getPost(){
+    http.get('/rest/posts').then(function(response){
+      scope.postsList=response.data.posts;
+      scope.error=response.data.error;
+      scope.postsList.sort(function(a,b){
+        return parseInt(b.orderNumber) - parseInt(a.orderNumber);
+      })
+    }); 
+  } 
+
+  function createPost(){
+    var postData = {'name': scope.newPost};
+    http.post('/rest/post',postData).then(function(response){
+      scope.error=response.data.error;
+      scope.newPost = '';
+      getPost();
+    }); 
+  }
+
+  function deletePost(postId){
+    http.delete('rest/post/' + postId).then(function(response){
+      scope.error=response.data.error;
+      getPost();
+    });
+  }
+

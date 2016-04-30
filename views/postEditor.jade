@@ -1,0 +1,27 @@
+extends ./layouts/postEditorLayout
+block content
+
+  div(class='editorNameDiv')
+    h3 #{postName}
+
+    div(name="postDiv" ng-app="postEditor" ng-controller="postCont")
+      div(name="error" ng-bind="error" ng-model="error")
+      
+      div(class='editorDiv')
+        h3 Order Number
+        input(name="orderNum" ng-bind="orderNum" ng-model="orderNum" ng-change="onChange()")
+
+      div(class='editorDiv')
+        h3 Title
+        textarea(name="title" ng-bind="title" ng-model="title" ng-change="onChange()")
+
+      div(class='editorDiv')
+        h3 Body 
+        textarea(name="body")
+
+      div(class='editorDiv') 
+        a(class='updateButton' href='/posts') Back 
+        div(class='updateButton' onclick="updatePost();") Update 
+        div(id='saveSuccess' class='saveMessage' name='saveSuccess' ng-show="showSave") Saved
+    
+  include ./js/postEditor.jade
